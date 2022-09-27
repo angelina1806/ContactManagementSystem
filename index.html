@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script defer src="js/inputmask.min.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body class="body">
+
+<main class="main">
+
+  <div class="search-line">
+
+    <div class="container search-line__container">
+
+      <img class="img-logo" src="img/logo.png" alt="logo">
+
+      <input class="input-search" type="text" placeholder="Введите запрос">
+    </div>
+  </div>
+
+  <div class="clients">
+
+    <div class="container table-container">
+
+      <table class="clients-table">
+
+        <caption class="table-title">
+          Клиенты
+        </caption>
+
+        <tr class="column-title">
+
+          <th class="th-id" id="id">
+            ID
+            <svg class="arrow" width="12" height="12"><use xlink:href="img/sprite.svg#arrow"></use></svg>
+          </th>
+
+          <th class="th-fullName" id="fullName">
+            Фамилия Имя Отчество
+            <svg class="arrow arrow--active" width="12" height="12"><use xlink:href="img/sprite.svg#arrow"></use></svg>
+            <span class="letter">А-Я</span>
+          </th>
+
+          <th class="th-dateCreate" id="createdAt">
+            Дата и время <br> создания
+            <svg class="arrow" width="12" height="12"><use xlink:href="img/sprite.svg#arrow"></use></svg>
+          </th>
+
+          <th class="th-dateChange" id="updatedAt">
+            Последнее <br> изменение
+            <svg class="arrow" width="12" height="12"><use xlink:href="img/sprite.svg#arrow"></use></svg>
+          </th>
+
+          <th class="th-contact">
+            Контакты
+          </th>
+
+          <th class="th-action">
+            Действия
+          </th>
+        </tr>
+      </table>
+    </div>
+
+    <div class="container">
+
+      <div class="loader-container">
+
+        <div class="loader"></div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <button class="btn-add-client">
+
+        <svg class="add-client" width="23" height="16"><use xlink:href="img/sprite.svg#add-client"></use></svg>
+        Добавить клиента
+      </button>
+    </div>
+  </div>
+</main>
+
+<div class="new-client-window modal-window">
+
+  <svg class="svg-close" width="29" height="29"><use xlink:href="img/sprite.svg#close"></use></svg>
+
+  <h3 class="new-client-title window-title">
+    Новый клиент
+  </h3>
+
+  <form class="form-add-new-client">
+
+    <input class="input-surname modal-window-input" type="text" placeholder="Фамилия*" required>
+    <input class="input-name modal-window-input" type="text" placeholder="Имя*" required>
+    <input class="input-lastname modal-window-input" type="text" placeholder="Отчество">
+
+    <label class="input-select"></label>
+
+    <label class="add-contact">
+
+      <svg class="svg-add-contact" width="16" height="16"><use xlink:href="img/sprite.svg#plus"></use></svg>
+
+      <input class="input-add-contact" type="button" value="Добавить контакт">
+    </label>
+
+    <span class="error-message"></span>
+
+    <div class="loader-save"></div>
+
+    <input class="window-btn input-save-new-client" type="submit" value="Сохранить">
+
+    <span class="cancel">Отмена</span>
+  </form>
+</div>
+
+<div class="change-client-window modal-window">
+
+  <svg class="svg-close" width="29" height="29"><use xlink:href="img/sprite.svg#close"></use></svg>
+
+  <h3 class="change-client-title window-title">
+    Изменить данные
+
+    <span class="id-client"></span>
+  </h3>
+
+  <form class="form-change-client">
+
+    <label class="lable-change " for="change-surname">
+
+      Фамилия*
+
+      <input class="input-change input-surname modal-window-input" id="change-surname" type="text">
+    </label>
+
+    <label class="lable-change " for="change-name">
+
+      Имя*
+
+      <input class="input-change input-name modal-window-input" id="change-name" type="text">
+    </label>
+
+    <label class="lable-change " for="change-lastname">
+
+      Отчество
+
+      <input class="input-change input-lastname modal-window-input" id="change-lastname" type="text">
+    </label>
+
+    <label class="input-select"></label>
+
+    <label class="add-contact">
+
+      <svg class="svg-add-contact" width="16" height="16"><use xlink:href="img/sprite.svg#add-contact"></use></svg>
+
+      <input class="input-add-contact " type="button" value="Добавить контакт">
+    </label>
+
+    <span class="error-message"></span>
+
+    <input class="window-btn input-save-change" type="submit" value="Сохранить">
+
+    <span class="cancel">Удалить клиента</span>
+  </form>
+</div>
+
+<div class="change-or-delete">
+  <div class="change">
+
+    <svg class="svg-change" width="16" height="16"><use xlink:href="img/sprite.svg#change"></use></svg>
+    <span>&nbsp;Изменить</span>
+  </div>
+
+  <div class="delete">
+
+      <svg class="svg-change" width="16" height="16"><use xlink:href="img/sprite.svg#delete"></use></svg>
+      <span>&nbsp;Удалить</span>
+  </div>
+</div>
+
+<div class="delete-client-window modal-window">
+
+  <svg class="svg-close" width="29" height="29"><use xlink:href="img/sprite.svg#close"></use></svg>
+
+  <h3 class="remove-client-title window-title">
+
+    Удалить клиента
+  </h3>
+
+  <span class="remove-descr">
+
+    Вы&nbsp;действительно хотите удалить данного клиента?
+  </span>
+
+  <input class="window-btn input-delete" type="submit" value="Удалить">
+
+  <span class="cancel">Отмена</span>
+</div>
+
+<div class="add-contact-window-hidden">
+
+  <form  class="form-add-contact">
+
+    <select class="select-add-contact">
+
+      <option value="phone">Телефон</option>
+      <option value="additionalPhone">Доп. телефон</option>
+      <option value="mail">Email</option>
+      <option value="vk">Vk</option>
+      <option value="facebook">Facebook</option>
+    </select>
+
+    <input class="input-add-contact-field" type="text" placeholder="Введите данные контакта">
+  </form>
+</div>
+
+<div class="closed-block">
+
+  <svg class="svg-closed-contact" width="29" height="29"><use xlink:href="img/sprite.svg#close-contact"></use></svg>
+  </div>
+</body>
+</html>
